@@ -11,11 +11,11 @@ phases:
       - npm install -g @redocly/openapi-cli@latest
       - openapi --version
       - mkdir redocly_project
-      - cp openapi.sh redocly_project/
+      - cp cmd.sh redocly_project/
       - cd redocly_project
       - wget https://idratherbewriting.com/learnapidoc/docs/rest_api_specifications/openapi_openweathermap.yml
-      - chmod +x openapi.sh
-      - ./openapi.sh # for create-openapi-repo file present in repository
+      - chmod +x cmd.sh
+      - ./cmd.sh # for create-openapi-repo file present in repository
       - openapi lint
       - openapi lint main openapi/openapi.yaml
      #- openapi preview-docs
