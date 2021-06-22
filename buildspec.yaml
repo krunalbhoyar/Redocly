@@ -3,6 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - ls -la
       - apt-get install curl
       - curl -sL https://deb.nodesource.com/setup_14.x | bash -
       - apt-get install -y nodejs
@@ -13,6 +14,7 @@ phases:
       - cp openapi.sh redocly_project/
       - cd redocly_project
       - wget https://idratherbewriting.com/learnapidoc/docs/rest_api_specifications/openapi_openweathermap.yml
+      - chmod +x openapi.sh
       - ./openapi.sh # for create-openapi-repo file present in repository
       - openapi lint
       - openapi lint main openapi/openapi.yaml
