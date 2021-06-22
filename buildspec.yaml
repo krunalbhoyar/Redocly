@@ -25,5 +25,4 @@ phases:
       - cp index.html redocly_project/redoc/
       - cd redocly_project/
       - mv dist.json redoc/
-
       
