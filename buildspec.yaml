@@ -3,22 +3,24 @@ version: 0.2
 phases:
   install:
     commands:
-      - sudo apt-get install curl
+      - apt-get install curl
       - curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-      - sudo apt-get install -y nodejs
+      - apt-get install -y nodejs
       - npm install -g create-openapi-repo
       - npm install -g @redocly/openapi-cli@latest
       - openapi --version
       - mkdir redocly_project
+      - cp openapi.sh redocly_project/
       - cd redocly_project
       - wget https://idratherbewriting.com/learnapidoc/docs/rest_api_specifications/openapi_openweathermap.yml
-      - ./cmd.sh # for create-openapi-repo file present in repository
+      - ./openapi.sh # for create-openapi-repo file present in repository
       - openapi lint
       - openapi lint main openapi/openapi.yaml
      #- openapi preview-docs
       - openapi bundle main -o dist.json
       - mkdir redoc
-      - cd redoc
-     # create index.html present in repository
       - cd ..
+      - cp index.html redocly_project/redoc/
+      - cd redocly_project/
       - mv dist.json redoc/
+      
